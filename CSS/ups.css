@@ -1,0 +1,23 @@
+
+body{
+    background: #62306d;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div{
+    width: 100px;
+    height: 100px;
+    background: #f7ec7d;
+    border-radius: 0 0 50% 50%;
+    margin-top: 100px;
+}
+#mirror{
+    transform: scaleY(-1);
+    margin-top: -100px;
+}
+
+
+
+
